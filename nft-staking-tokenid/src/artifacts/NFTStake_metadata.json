@@ -1,0 +1,1489 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_nativeTokenWrapper",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "ContractMetadataUnauthorized",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "expected",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "actual",
+						"type": "uint256"
+					}
+				],
+				"name": "CurrencyTransferLibMismatchedValue",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidInitialization",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotInitializing",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					}
+				],
+				"name": "PermissionsAlreadyGranted",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "expected",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "actual",
+						"type": "address"
+					}
+				],
+				"name": "PermissionsInvalidPermission",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "neededRole",
+						"type": "bytes32"
+					}
+				],
+				"name": "PermissionsUnauthorizedAccount",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "prevURI",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "newURI",
+						"type": "string"
+					}
+				],
+				"name": "ContractURIUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "version",
+						"type": "uint64"
+					}
+				],
+				"name": "Initialized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "RewardTokensDepositedByAdmin",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "RewardTokensWithdrawnByAdmin",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "staker",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "rewardAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "RewardsClaimed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "previousAdminRole",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "newAdminRole",
+						"type": "bytes32"
+					}
+				],
+				"name": "RoleAdminChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"name": "RoleGranted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"name": "RoleRevoked",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "staker",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256[]",
+						"name": "tokenIds",
+						"type": "uint256[]"
+					}
+				],
+				"name": "TokensStaked",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "staker",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256[]",
+						"name": "tokenIds",
+						"type": "uint256[]"
+					}
+				],
+				"name": "TokensWithdrawn",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "oldRewardsPerUnitTime",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newRewardsPerUnitTime",
+						"type": "uint256"
+					}
+				],
+				"name": "UpdatedRewardsPerUnitTime",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "oldTimeUnit",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newTimeUnit",
+						"type": "uint256"
+					}
+				],
+				"name": "UpdatedTimeUnit",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "DEFAULT_ADMIN_ROLE",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "claimRewards",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "contractType",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "contractURI",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "contractVersion",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "depositRewardTokens",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getRewardTokenBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getRewardsPerUnitTime",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "_rewardsPerUnitTime",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					}
+				],
+				"name": "getRoleAdmin",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "getRoleMember",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "member",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					}
+				],
+				"name": "getRoleMemberCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "count",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_staker",
+						"type": "address"
+					}
+				],
+				"name": "getStakeInfo",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "_tokensStaked",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_rewards",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTimeUnit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "_timeUnit",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "grantRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "hasRole",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "hasRoleWithSwitch",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "indexedTokens",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_defaultAdmin",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_contractURI",
+						"type": "string"
+					},
+					{
+						"internalType": "address[]",
+						"name": "_trustedForwarders",
+						"type": "address[]"
+					},
+					{
+						"internalType": "address",
+						"name": "_rewardToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_stakingToken",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_timeUnit",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_rewardsPerUnitTime",
+						"type": "uint256"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "isIndexed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "forwarder",
+						"type": "address"
+					}
+				],
+				"name": "isTrustedForwarder",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes[]",
+						"name": "data",
+						"type": "bytes[]"
+					}
+				],
+				"name": "multicall",
+				"outputs": [
+					{
+						"internalType": "bytes[]",
+						"name": "results",
+						"type": "bytes[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"name": "onERC721Received",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "renounceRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "revokeRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "rewardToken",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_uri",
+						"type": "string"
+					}
+				],
+				"name": "setContractURI",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_rewardsPerUnitTime",
+						"type": "uint256"
+					}
+				],
+				"name": "setRewardsPerUnitTime",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_timeUnit",
+						"type": "uint256"
+					}
+				],
+				"name": "setTimeUnit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "_tokenIds",
+						"type": "uint256[]"
+					}
+				],
+				"name": "stake",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "stakerAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "stakers",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "amountStaked",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint64",
+						"name": "conditionIdOflastUpdate",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint128",
+						"name": "timeOfLastUpdate",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint256",
+						"name": "unclaimedRewards",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "stakersArray",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "stakingToken",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "_tokenIds",
+						"type": "uint256[]"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdrawRewardTokens",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"errors": {
+				"ContractMetadataUnauthorized()": [
+					{
+						"details": "The sender is not authorized to perform the action"
+					}
+				],
+				"InvalidInitialization()": [
+					{
+						"details": "The contract is already initialized."
+					}
+				],
+				"NotInitializing()": [
+					{
+						"details": "The contract is not initializing."
+					}
+				],
+				"PermissionsAlreadyGranted(address,bytes32)": [
+					{
+						"details": "The `account` already is a holder of `role`"
+					}
+				],
+				"PermissionsInvalidPermission(address,address)": [
+					{
+						"details": "Invalid priviledge to revoke"
+					}
+				],
+				"PermissionsUnauthorizedAccount(address,bytes32)": [
+					{
+						"details": "The `account` is missing a role."
+					}
+				]
+			},
+			"events": {
+				"ContractURIUpdated(string,string)": {
+					"details": "Emitted when the contract URI is updated."
+				},
+				"Initialized(uint64)": {
+					"details": "Triggered when the contract has been initialized or reinitialized."
+				},
+				"RewardTokensDepositedByAdmin(uint256)": {
+					"details": "Emitted when contract admin deposits reward tokens."
+				},
+				"RewardTokensWithdrawnByAdmin(uint256)": {
+					"details": "Emitted when contract admin withdraws reward tokens."
+				},
+				"RewardsClaimed(address,uint256)": {
+					"details": "Emitted when a staker claims staking rewards."
+				},
+				"RoleAdminChanged(bytes32,bytes32,bytes32)": {
+					"details": "Emitted when `newAdminRole` is set as ``role``'s admin role, replacing `previousAdminRole` `DEFAULT_ADMIN_ROLE` is the starting admin for all roles, despite {RoleAdminChanged} not being emitted signaling this. _Available since v3.1._"
+				},
+				"RoleGranted(bytes32,address,address)": {
+					"details": "Emitted when `account` is granted `role`. `sender` is the account that originated the contract call, an admin role bearer except when using {AccessControl-_setupRole}."
+				},
+				"RoleRevoked(bytes32,address,address)": {
+					"details": "Emitted when `account` is revoked `role`. `sender` is the account that originated the contract call:   - if using `revokeRole`, it is the admin role bearer   - if using `renounceRole`, it is the role bearer (i.e. `account`)"
+				},
+				"TokensStaked(address,uint256[])": {
+					"details": "Emitted when a set of token-ids are staked."
+				},
+				"TokensWithdrawn(address,uint256[])": {
+					"details": "Emitted when a set of staked token-ids are withdrawn."
+				},
+				"UpdatedRewardsPerUnitTime(uint256,uint256)": {
+					"details": "Emitted when contract admin updates rewardsPerUnitTime."
+				},
+				"UpdatedTimeUnit(uint256,uint256)": {
+					"details": "Emitted when contract admin updates timeUnit."
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"claimRewards()": {
+					"details": "See {_claimRewards}. Override that to implement custom logic.             See {_calculateRewards} for reward-calculation logic."
+				},
+				"contractType()": {
+					"details": "Returns the module type of the contract."
+				},
+				"contractVersion()": {
+					"details": "Returns the version of the contract."
+				},
+				"depositRewardTokens(uint256)": {
+					"details": "Admin deposits reward tokens."
+				},
+				"getRoleAdmin(bytes32)": {
+					"details": "See {grantRole} and {revokeRole}.                  To change a role's admin, use {_setRoleAdmin}.",
+					"params": {
+						"role": "keccak256 hash of the role. e.g. keccak256(\"TRANSFER_ROLE\")"
+					}
+				},
+				"getRoleMember(bytes32,uint256)": {
+					"details": "Returns `member` who has `role`, at `index` of role-members list.                  See struct {RoleMembers}, and mapping {roleMembers}",
+					"params": {
+						"index": "Index in list of current members for the role.",
+						"role": "keccak256 hash of the role. e.g. keccak256(\"TRANSFER_ROLE\")"
+					},
+					"returns": {
+						"member": " Address of account that has `role`"
+					}
+				},
+				"getRoleMemberCount(bytes32)": {
+					"details": "Returns `count` of accounts that have `role`.                  See struct {RoleMembers}, and mapping {roleMembers}",
+					"params": {
+						"role": "keccak256 hash of the role. e.g. keccak256(\"TRANSFER_ROLE\")"
+					},
+					"returns": {
+						"count": "  Total number of accounts that have `role`"
+					}
+				},
+				"getStakeInfo(address)": {
+					"params": {
+						"_staker": "Address for which to calculated rewards."
+					},
+					"returns": {
+						"_rewards": "       Available reward amount.",
+						"_tokensStaked": "  List of token-ids staked by staker."
+					}
+				},
+				"grantRole(bytes32,address)": {
+					"details": "Caller must have admin role for the `role`.                  Emits {RoleGranted Event}.",
+					"params": {
+						"account": "Address of the account to which the role is being granted.",
+						"role": "keccak256 hash of the role. e.g. keccak256(\"TRANSFER_ROLE\")"
+					}
+				},
+				"hasRole(bytes32,address)": {
+					"details": "Returns `true` if `account` has been granted `role`.",
+					"params": {
+						"account": "Address of the account for which the role is being checked.",
+						"role": "keccak256 hash of the role. e.g. keccak256(\"TRANSFER_ROLE\")"
+					}
+				},
+				"hasRoleWithSwitch(bytes32,address)": {
+					"details": "Returns `true` if `account` has been granted `role`.                  Role restrictions can be swtiched on and off:                      - If address(0) has ROLE, then the ROLE restrictions                        don't apply.                      - If address(0) does not have ROLE, then the ROLE                        restrictions will apply.",
+					"params": {
+						"account": "Address of the account for which the role is being checked.",
+						"role": "keccak256 hash of the role. e.g. keccak256(\"TRANSFER_ROLE\")"
+					}
+				},
+				"initialize(address,string,address[],address,address,uint256,uint256)": {
+					"details": "Initializes the contract, like a constructor."
+				},
+				"multicall(bytes[])": {
+					"details": "Receives and executes a batch of function calls on this contract.",
+					"params": {
+						"data": "The bytes data that makes up the batch of function calls to execute."
+					},
+					"returns": {
+						"results": "The bytes data that makes up the result of the batch of function calls executed."
+					}
+				},
+				"renounceRole(bytes32,address)": {
+					"details": "Caller must have the `role`, with caller being the same as `account`.                  Emits {RoleRevoked Event}.",
+					"params": {
+						"account": "Address of the account from which the role is being revoked.",
+						"role": "keccak256 hash of the role. e.g. keccak256(\"TRANSFER_ROLE\")"
+					}
+				},
+				"revokeRole(bytes32,address)": {
+					"details": "Caller must have admin role for the `role`.                  Emits {RoleRevoked Event}.",
+					"params": {
+						"account": "Address of the account from which the role is being revoked.",
+						"role": "keccak256 hash of the role. e.g. keccak256(\"TRANSFER_ROLE\")"
+					}
+				},
+				"setContractURI(string)": {
+					"details": "Caller should be authorized to setup contractURI, e.g. contract admin.                  See {_canSetContractURI}.                  Emits {ContractURIUpdated Event}.",
+					"params": {
+						"_uri": "keccak256 hash of the role. e.g. keccak256(\"TRANSFER_ROLE\")"
+					}
+				},
+				"setRewardsPerUnitTime(uint256)": {
+					"details": "Only admin/authorized-account can call it.",
+					"params": {
+						"_rewardsPerUnitTime": "New rewards per unit time."
+					}
+				},
+				"setTimeUnit(uint256)": {
+					"details": "Only admin/authorized-account can call it.",
+					"params": {
+						"_timeUnit": "New time unit."
+					}
+				},
+				"stake(uint256[])": {
+					"details": "See {_stake}. Override that to implement custom logic.",
+					"params": {
+						"_tokenIds": "List of tokens to stake."
+					}
+				},
+				"supportsInterface(bytes4)": {
+					"details": "See {IERC165-supportsInterface}."
+				},
+				"withdraw(uint256[])": {
+					"details": "See {_withdraw}. Override that to implement custom logic.",
+					"params": {
+						"_tokenIds": "List of tokens to withdraw."
+					}
+				},
+				"withdrawRewardTokens(uint256)": {
+					"details": "Admin can withdraw excess reward tokens."
+				}
+			},
+			"stateVariables": {
+				"nativeTokenWrapper": {
+					"details": "The address of the native token wrapper contract."
+				},
+				"rewardToken": {
+					"details": "ERC20 Reward Token address. See {_mintRewards} below."
+				},
+				"rewardTokenBalance": {
+					"details": "Total amount of reward tokens in the contract."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"claimRewards()": {
+					"notice": "Claim accumulated rewards."
+				},
+				"contractURI()": {
+					"notice": "Returns the contract metadata URI."
+				},
+				"getRewardTokenBalance()": {
+					"notice": "View total rewards available in the staking contract."
+				},
+				"getRoleAdmin(bytes32)": {
+					"notice": "Returns the admin role that controls the specified role."
+				},
+				"getRoleMember(bytes32,uint256)": {
+					"notice": "Returns the role-member from a list of members for a role,                  at a given index."
+				},
+				"getRoleMemberCount(bytes32)": {
+					"notice": "Returns total number of accounts that have a role."
+				},
+				"getStakeInfo(address)": {
+					"notice": "View amount staked and total rewards for a user."
+				},
+				"grantRole(bytes32,address)": {
+					"notice": "Grants a role to an account, if not previously granted."
+				},
+				"hasRole(bytes32,address)": {
+					"notice": "Checks whether an account has a particular role."
+				},
+				"hasRoleWithSwitch(bytes32,address)": {
+					"notice": "Checks whether an account has a particular role;                  role restrictions can be swtiched on and off."
+				},
+				"multicall(bytes[])": {
+					"notice": "Receives and executes a batch of function calls on this contract."
+				},
+				"renounceRole(bytes32,address)": {
+					"notice": "Revokes role from the account."
+				},
+				"revokeRole(bytes32,address)": {
+					"notice": "Revokes role from an account."
+				},
+				"setContractURI(string)": {
+					"notice": "Lets a contract admin set the URI for contract-level metadata."
+				},
+				"setRewardsPerUnitTime(uint256)": {
+					"notice": "Set rewards per unit of time.           Interpreted as x rewards per second/per day/etc based on time-unit."
+				},
+				"setTimeUnit(uint256)": {
+					"notice": "Set time unit. Set as a number of seconds.           Could be specified as -- x * 1 hours, x * 1 days, etc."
+				},
+				"stake(uint256[])": {
+					"notice": "Stake ERC721 Tokens."
+				},
+				"withdraw(uint256[])": {
+					"notice": "Withdraw staked tokens."
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"nft-staking-tokenid/src/Contract.sol": "NFTStake"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
+			"keccak256": "0x631188737069917d2f909d29ce62c4d48611d326686ba6683e26b72a23bfac0b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7a61054ae84cd6c4d04c0c4450ba1d6de41e27e0a2c4f1bcdf58f796b401c609",
+				"dweb:/ipfs/QmUvtdp7X1mRVyC3CsHrtPbgoqWaXHp3S1ZR24tpAQYJWM"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol": {
+			"keccak256": "0x2025ccf05f6f1f2fd4e078e552836f525a1864e3854ed555047cd732320ab29b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d27f4b23c2dee42394aebaf42bf238285230f472dfd3282a39c3f000ec28214f",
+				"dweb:/ipfs/QmQa3DnvccwdWJeWrjgXPnFMTWbzWQWR39hVqC7eEwo2PC"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/token/ERC721/IERC721ReceiverUpgradeable.sol": {
+			"keccak256": "0xbb2ed8106d94aeae6858e2551a1e7174df73994b77b13ebd120ccaaef80155f5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8bc3c6a456dba727d8dd9fd33420febede490abb49a07469f61d2a3ace66a95a",
+				"dweb:/ipfs/QmVAWtEVj7K5AbvgJa9Dz22KiDq9eoptCjnVZqsTMtKXyd"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
+			"keccak256": "0xdbef5f0c787055227243a7318ef74c8a5a1108ca3a07f2b3a00ef67769e1e397",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://08e39f23d5b4692f9a40803e53a8156b72b4c1f9902a88cd65ba964db103dab9",
+				"dweb:/ipfs/QmPKn6EYDgpga7KtpkA8wV2yJCYGMtc9K4LkJfhKX2RVSV"
+			]
+		},
+		"@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol": {
+			"keccak256": "0xdaba3f7c42c55b2896353f32bd27d4d5f8bae741b3b05d4c53f67abc4dc47ce8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1fa2e61141c602510bcd2cd936ed9561922ac8772a9b9c9a9db091a74e354a45",
+				"dweb:/ipfs/QmcHQDDoEBwJmwUbzoVkytvJsBx3KVHYFFnDkvRGWh9Wmh"
+			]
+		},
+		"@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+			"keccak256": "0x4296879f55019b23e135000eb36896057e7101fb7fb859c5ef690cf14643757b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://87b3541437c8c443ccd36795e56a338ed12855eec17f8da624511b8d1a7e14df",
+				"dweb:/ipfs/QmeJQCtZrQjtJLr6u7ZHWeH3pBnjtLWzvRrKViAi7UZqxL"
+			]
+		},
+		"nft-staking-tokenid/eip/interface/IERC20.sol": {
+			"keccak256": "0x458d6ffd4d79153b9bfca794efa8169bbb942b47723153e6d2b0051e2cd9dcf1",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://a08cdc1bfc92ed80fc6686fb51a018b896ee862ac9fa1a1599b3fa0198760ce8",
+				"dweb:/ipfs/QmTxqXNnbht1GfzkTAKpQnpZdEADS9YXZdE8Cdr6cSJrNP"
+			]
+		},
+		"nft-staking-tokenid/eip/interface/IERC721.sol": {
+			"keccak256": "0x00754fd93079350acb6b1d0451320cc4b4252bf7990aa39cde29abb5ca4a60ea",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c91392521b426c02b342d4ba0f2c5cad2c6074e1be90203c9525751dd23b36bf",
+				"dweb:/ipfs/QmNjjCttJ9A39HMn3FTMqjQN5y7UoQrPUhQ7Nd8Ci7jFZj"
+			]
+		},
+		"nft-staking-tokenid/extension/ContractMetadata.sol": {
+			"keccak256": "0x0752a8a6eeb7e61acfe50e39344c16258a89cfaa55fc9db9289dc6e18ae7af66",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://6ca1ffdbc96af19fa17e23fd8a1aebe2d5849e63ded33805228b26f1901125e8",
+				"dweb:/ipfs/QmckQ7iwwm9LuywfpuYP7Y7AcUW8yNy1eDL741ug8w1wyv"
+			]
+		},
+		"nft-staking-tokenid/extension/Multicall.sol": {
+			"keccak256": "0xe4479833f6297a1461478733e14dd0e9b8376da474fa7067cb8937f9ccff2836",
+			"license": "Apache 2.0",
+			"urls": [
+				"bzz-raw://b03c41daeba7783e04387eff65f6ccc50f2312d895ff3cb9198410976df19c4e",
+				"dweb:/ipfs/QmV54V9YQn9TWZhoAsFex8GdCkQmFX6iajYnUv5zU1sxEQ"
+			]
+		},
+		"nft-staking-tokenid/extension/Permissions.sol": {
+			"keccak256": "0x37bd3bb30ecb3e927ceeef6f06c91dbcf1b26a67f89fe4da668667410d8e9f3f",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://6b5f6ffbcfeaa1dfc3af7998ebed5874e5086ff85d24d4e2a3fdfc1e0c43fbf1",
+				"dweb:/ipfs/QmcEhkjLGEsPseuowokqk2FJpNscmNDaxwJx6rDCjoZwKc"
+			]
+		},
+		"nft-staking-tokenid/extension/PermissionsEnumerable.sol": {
+			"keccak256": "0x434a6ffc16ddc437ffb37b8fbe4c9696385252f15a617c4606b8c5e10561caf3",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://1a9d4dac4bf2ae3c3c086af1956dc25e8b149b0914125e660cc0648791c247cb",
+				"dweb:/ipfs/QmTMEggPdBea1JCamsShwRf3en2FgVTXNTPJ2isFtBk4Kk"
+			]
+		},
+		"nft-staking-tokenid/extension/Staking721Upgradeable.sol": {
+			"keccak256": "0x57679c78b2a19b9dfc08c57d0bb3e9ba573e812a56ffbde67e8994a124218239",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://534a782a46ab30f82c68f124fb65bdf4612f6d36a1a773a7e52e2c8b69f1e573",
+				"dweb:/ipfs/QmYc1Qw8Dax3eAwx7sKg7aYUr3rgAhYXg5LhKiTdtvbTPv"
+			]
+		},
+		"nft-staking-tokenid/extension/interface/IContractMetadata.sol": {
+			"keccak256": "0x41d3f7f43c124e9ff0247cb94f4e8fc8c5a79b1de331c67eb03654154248d7f2",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://fa8d6251cf3a876193cc719b456c02ff23d3f2d5486431e9bdaf290be9a4ce9a",
+				"dweb:/ipfs/QmRwnA2q15Vdkc66fz6BAinZM3tjuVNHn5CeGzc7ZFMAzr"
+			]
+		},
+		"nft-staking-tokenid/extension/interface/IMulticall.sol": {
+			"keccak256": "0xe2bbd37b8fdb9cc8b933e598512a068ebb214b3f5abc2bc634916def55be4ef3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://012352099c262348ac755a53b082af520babc6c66dc5f1251fc23609728340ca",
+				"dweb:/ipfs/QmcXEgzQ53jdJX5ZNy8zivvUjDq7J8WTnR1yAiwTpkQ2ar"
+			]
+		},
+		"nft-staking-tokenid/extension/interface/IPermissions.sol": {
+			"keccak256": "0xc0cd1f87bac474a06f85e2b341b9b57662aee957fc24180d42c872481c2f2ae3",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://7dec3eed451d63867531d693f0be3279fa2c9aef3130f0826c3520c06820fa5d",
+				"dweb:/ipfs/QmTYANrcPdd9SCe99DWsKJ19evNRQKQGZeoS1Keew4M2cS"
+			]
+		},
+		"nft-staking-tokenid/extension/interface/IPermissionsEnumerable.sol": {
+			"keccak256": "0x2e742c18a4481bad41d56424cd16c52def2fb415f69e5fb5f67d8d979300ff95",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://d9be33bb865e3e82aca540a3e38cbc2bf2e431f9d1bf39c50d6c757e7b7bf3ee",
+				"dweb:/ipfs/Qmdad1Xqj5SQ44Bk4bwD2uA36XnGHtqnVYSomKZQvnUBVG"
+			]
+		},
+		"nft-staking-tokenid/extension/interface/IStaking721.sol": {
+			"keccak256": "0x8d0d1508daad0e427ccd002fdd7adc25261930bb32e21bdb90af354ed37f7076",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://00e7d2ebe66cdd849690933146070e65f36ebb59487a4028bca4b9d8d4635e89",
+				"dweb:/ipfs/QmRfSUDHE2rVGkfHuYtHLbJpvtTc1gw4SUcpuyqL8pH2iS"
+			]
+		},
+		"nft-staking-tokenid/external-deps/openzeppelin/metatx/ERC2771ContextUpgradeable.sol": {
+			"keccak256": "0xdbc96b1264d2e2bd82cb7e697056929325e09d1641321145a8cec53b22b9567d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7ca7ccf947d21d98878ec18e941b750cd2ae7c563e6d2a707da4f806038d67c8",
+				"dweb:/ipfs/QmYVLYUPMD3b95vKrS5yjxcz2MDNNzkWJY9xc9bc9oTZdh"
+			]
+		},
+		"nft-staking-tokenid/external-deps/openzeppelin/token/ERC20/utils/SafeERC20.sol": {
+			"keccak256": "0x87a5e71a483d7904e96e5eb050220207c79421cb36d6d56d3017636e0a17d4d6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://36c38f48bc197bc50c61e15cab33ac6440c1090db027947cb5a5c99ad6960315",
+				"dweb:/ipfs/QmcEKQgqdyBvFWwTrWe7e4jr3oxZVDgPZ3RykML2MrWad8"
+			]
+		},
+		"nft-staking-tokenid/external-deps/openzeppelin/utils/math/SafeMath.sol": {
+			"keccak256": "0xa80cb30fccbba7c8ff72ac82cc898576a78d4c3031e85676840048f3fe195f5d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://22fff2b2370631317e0e4bf36eabb136e96f1db5d5993c61e13b27d7615b504f",
+				"dweb:/ipfs/QmfTW395az3LUhe3Gm5BUCwkaj9Sk1fURZKvHL2XzDHYQk"
+			]
+		},
+		"nft-staking-tokenid/infra/interface/IWETH.sol": {
+			"keccak256": "0x5c1df76e8c1d9b5c069e4c0e35c3ad3316530c382fe3ddc6c21584f5e56f0a7b",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://1ff3429e0845d3266dd65ce097e194008511940a6f9fe651578b19737d37f2b1",
+				"dweb:/ipfs/QmdnrZ7hr7BezqyhrmKTzTovbTjQYT5EcDYfvRYxxYFVeU"
+			]
+		},
+		"nft-staking-tokenid/lib/Address.sol": {
+			"keccak256": "0xa1e2c06c07422ce6f27ab1c4d4ce62bdc3200e082b735b5e3a75c2e7b61cbc4f",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://cc90229c980f78c582a05386d4621172c7d20dec9ad528a5bf1d59b243fff0a5",
+				"dweb:/ipfs/QmcZZLaZ9XU1gWj7b9EBZftPoED3pKEvvFGhS5yBvtMPtn"
+			]
+		},
+		"nft-staking-tokenid/lib/CurrencyTransferLib.sol": {
+			"keccak256": "0x92d751d69f2bda27379e1dd903eb4fbdd7cbaa1bce4bebe492405b9bb9a04395",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://aa34322ae5bd6f4d9821c403fb74055013d3f14a35491556bc7a9250aebbc38d",
+				"dweb:/ipfs/QmVjtbJh2YdMN7QY4bPBLgjMDwX1A7Yu3Tr5Q5ndJqkXkR"
+			]
+		},
+		"nft-staking-tokenid/lib/Strings.sol": {
+			"keccak256": "0xd8fcca4db8f1678a124ae0d3b4da6c29e9737e5ae03f90f18b84261ae4499568",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://ed0d23694c31613645904cc5d6f3e08ecd34063aeb5bd23ebc9a8223a67f91fb",
+				"dweb:/ipfs/QmTf9WBdvzU2dDDTqeSn1g85AkXTe8MfN1pdyaVzm15Cdb"
+			]
+		},
+		"nft-staking-tokenid/src/Contract.sol": {
+			"keccak256": "0xd78b1639dcc6e81a4ae8f45f5fc744ee95721a5bc455fbd21f05246032110f5c",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://57e4ccce9117015be804893d11d326114e7f6f5bc215da6c82bfbc777956624d",
+				"dweb:/ipfs/QmQuywxBeUxwzZgsbGcmg4EBUpMp9fnVUW1FLjLPCmBHqh"
+			]
+		},
+		"nft-staking-tokenid/src/interface/staking/INFTStake.sol": {
+			"keccak256": "0xa50c121c0d322526fe8432c9b69d0ae51d8e8467a3314e1af69da2de0f398559",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://1fe3a11b07b0c7e3146fc191f2d60bc3e0397c87ab8d23f7a745bd51a48efb18",
+				"dweb:/ipfs/QmThdDoyvZ4CEkDnxgZ5DS2tjHwrhdbpwrkNaw79auvqL2"
+			]
+		}
+	},
+	"version": 1
+}

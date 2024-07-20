@@ -1,0 +1,411 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"claimRewards()": "372500ab",
+			"getRewardTokenBalance()": "93ce5343",
+			"getRewardsPerUnitTime()": "0e8b229b",
+			"getStakeInfo(address)": "c3453153",
+			"getTimeUnit()": "d68124c7",
+			"indexedTokens(uint256)": "961004d3",
+			"isIndexed(uint256)": "fd48ba17",
+			"setRewardsPerUnitTime(uint256)": "23ef2580",
+			"setTimeUnit(uint256)": "6360106f",
+			"stake(uint256[])": "0fbf0a93",
+			"stakerAddress(uint256)": "94067045",
+			"stakers(address)": "9168ae72",
+			"stakersArray(uint256)": "5357e916",
+			"stakingToken()": "72f702f3",
+			"withdraw(uint256[])": "983d95ce"
+		}
+	},
+	"abi": [
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "staker",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "rewardAmount",
+					"type": "uint256"
+				}
+			],
+			"name": "RewardsClaimed",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "staker",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "uint256[]",
+					"name": "tokenIds",
+					"type": "uint256[]"
+				}
+			],
+			"name": "TokensStaked",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "staker",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "uint256[]",
+					"name": "tokenIds",
+					"type": "uint256[]"
+				}
+			],
+			"name": "TokensWithdrawn",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "oldRewardsPerUnitTime",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "newRewardsPerUnitTime",
+					"type": "uint256"
+				}
+			],
+			"name": "UpdatedRewardsPerUnitTime",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "oldTimeUnit",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "newTimeUnit",
+					"type": "uint256"
+				}
+			],
+			"name": "UpdatedTimeUnit",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "claimRewards",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getRewardTokenBalance",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "_rewardsAvailableInContract",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getRewardsPerUnitTime",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "_rewardsPerUnitTime",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_staker",
+					"type": "address"
+				}
+			],
+			"name": "getStakeInfo",
+			"outputs": [
+				{
+					"internalType": "uint256[]",
+					"name": "_tokensStaked",
+					"type": "uint256[]"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_rewards",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getTimeUnit",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "_timeUnit",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "indexedTokens",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "isIndexed",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_rewardsPerUnitTime",
+					"type": "uint256"
+				}
+			],
+			"name": "setRewardsPerUnitTime",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_timeUnit",
+					"type": "uint256"
+				}
+			],
+			"name": "setTimeUnit",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256[]",
+					"name": "_tokenIds",
+					"type": "uint256[]"
+				}
+			],
+			"name": "stake",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "stakerAddress",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"name": "stakers",
+			"outputs": [
+				{
+					"internalType": "uint64",
+					"name": "amountStaked",
+					"type": "uint64"
+				},
+				{
+					"internalType": "uint64",
+					"name": "conditionIdOflastUpdate",
+					"type": "uint64"
+				},
+				{
+					"internalType": "uint128",
+					"name": "timeOfLastUpdate",
+					"type": "uint128"
+				},
+				{
+					"internalType": "uint256",
+					"name": "unclaimedRewards",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "stakersArray",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "stakingToken",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256[]",
+					"name": "_tokenIds",
+					"type": "uint256[]"
+				}
+			],
+			"name": "withdraw",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}
